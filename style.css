@@ -1,0 +1,9 @@
+.weather-app{
+    max-width: 600px;
+    border: 1px solid #232324;
+    background: #f8f9fa;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 10px;
+   
+}
