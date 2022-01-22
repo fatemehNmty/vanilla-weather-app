@@ -15,6 +15,7 @@ function dispalyTemperature(response){
     windElement.innerHTML=response.data;
     dayElement=day;
     timeElement=(hours+":"+minutes);
+    console.log(response.data);
 
 }
 function formatDay(timesstap){
@@ -43,6 +44,6 @@ function formatDay(timesstap){
 
 
 let apiKey="29b613cb78020bf566b370de137d2f26";
-let city 
-let apiUrl=`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+let city ="new york";
+let apiUrl=`api.openweathermap.org/data/2.5/weather?id={city}&appid={apiKey}&units=metric`;
 axios.get(apiUrl).then(dispalyTemperature);
