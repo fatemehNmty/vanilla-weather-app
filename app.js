@@ -41,9 +41,19 @@ function formatDay(timesstap){
 }
 
 
+function search(city){
+    let apiKey="29b613cb78020bf566b370de137d2f26";
+    let city ="new york";
+    let apiUrl=`api.openweathermap.org/data/2.5/weather?id={city}&appid={apiKey}&units=metric`;
+    axios.get(apiUrl).then(dispalyTemperature);
+}
+
+function handesubmit(event){
+    event.preventDeault();
+    let cityInputElement=document.querySelector("#cityForm");
+    search(cityInputElement.value);
+}
+ let form=document.querySelector("#searchingForm");
+ form.addEventListener("submit",handesubmit);
 
 
-let apiKey="29b613cb78020bf566b370de137d2f26";
-let city ="new york";
-let apiUrl=`api.openweathermap.org/data/2.5/weather?id={city}&appid={apiKey}&units=metric`;
-axios.get(apiUrl).then(dispalyTemperature);
