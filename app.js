@@ -1,19 +1,24 @@
 
 
  function displayTemperature(response) {
+  celsiusTemperature=response.data.main.temp;
     let temperatureElement = document.querySelector("#degree");
     let cityElement = document.querySelector("#cityname");
     let descriptionElement = document.querySelector("#description");
     let humidityElement = document.querySelector("#Humidity");
     let windElement = document.querySelector(".wind");
     let dayElement = document.querySelector(".day");
+    let iconElement=document.querySelector("#icoon");
     console.log(response.data);
-    temperatureElement.innerHTML = Math.round(response.data.main.temp);
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
     cityElement.innerHTML = response.data.name;
     descriptionElement.innerHTML = response.data.weather[0].description;
     humidityElement.innerHTML = response.data.main.humidity;
     windElement.innerHTML = response.data.wind.speed;
     dayElement.innerHTML = formatDay(response.data.dt * 1000);
+    iconElement.setAttribute=("src",'http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png');
+    
+    
   }
   function formatDay(timestamp) {
     let date = new Date(timestamp);
@@ -52,6 +57,31 @@
   }
   let form = document.querySelector("#searchingForm");
   form.addEventListener("submit", handleSubmit);
-  
+
+
+  function displayFarenhietTemperature(event){
+    event.preventDefault();
+    farenhietLink.classList.add("active");
+    cantigrdLink.classList.remove("active");
+    let temperatureElement = document.querySelector("#degree");
+    let farenhietLinkTemperature=(celsiusTemperature * 9) / 5 + 32;
+    temperatureElement.innerHTML=Math.round(farenhietLinkTemperature);
+  }
+  function displayCantigrdTemperature(event){
+    event.preventDefault();
+    farenhietLink.classList.remove("active");
+    cantigrdLink.classList.add("active");
+    let temperatureElement = document.querySelector("#degree");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  }
+  celsiusTemperature=null;
+
+ 
+  let farenhietLink=document.querySelector(".farenhat");
+  farenhietLink.innerHTML=("click",displayFarenhietTemperature);
+ 
+  let cantigrdLink=document.querySelector(".cantigrd");
+  cantigrdLink=("click",displayCantigrdTemperature);
+
   search("new york");
 
