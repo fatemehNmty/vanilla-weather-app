@@ -16,8 +16,8 @@
     humidityElement.innerHTML = response.data.main.humidity;
     windElement.innerHTML = response.data.wind.speed;
     dayElement.innerHTML = formatDay(response.data.dt * 1000);
-    iconElement.setAttribute=("src",'http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png');
-    
+    iconElement.setAttribute=("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    iconElement.setAttribute=("alt", response.data.weather[0].description);
     
   }
   function formatDay(timestamp) {
@@ -76,12 +76,13 @@
   }
   celsiusTemperature=null;
 
- 
-  let farenhietLink=document.querySelector(".farenhat");
-  farenhietLink.innerHTML=("click",displayFarenhietTemperature);
- 
-  let cantigrdLink=document.querySelector(".cantigrd");
-  cantigrdLink=("click",displayCantigrdTemperature);
+let farenhietLink = document.querySelector(".farenhat");
+farenhietLink.addEventListener("click", displayFarenhietTemperature);
+
+let cantigrdLink = document.querySelector(".cantigrd");
+cantigrdLink.addEventListener("click", displayCantigrdTemperature);
+
+
 
   search("new york");
 
