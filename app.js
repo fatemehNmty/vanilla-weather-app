@@ -82,6 +82,28 @@ farenhietLink.addEventListener("click", displayFarenhietTemperature);
 let cantigrdLink = document.querySelector(".cantigrd");
 cantigrdLink.addEventListener("click", displayCantigrdTemperature);
 
+function displayForecast(){
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML='<div class="row" >
+  let days = ["thu" , "fri" , "sat" ,"sun"];
+  days.forEach(function(day){
+    forecastHTML = forecastHTML +'<div class="col-2">
+                <div class="weather-forcast-date">
+                    su 
+                </div>
+                <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="" width="36" />
+                <div class="weather-forcast-temperature">
+                    <span class="weather-forcast-temperature-max">
+                        18
+                    </span>
+                    <span class="weather-forcast-temperature-min">
+                        12
+                    </span>
+                </div>
+                       </div>'});
+  '
+}
+
 
 
   search("new york");
