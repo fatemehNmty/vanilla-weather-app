@@ -82,12 +82,15 @@ farenhietLink.addEventListener("click", displayFarenhietTemperature);
 let cantigrdLink = document.querySelector(".cantigrd");
 cantigrdLink.addEventListener("click", displayCantigrdTemperature);
 
-function displayForecast(){
+
+function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
-  let forecastHTML='<div class="row" >
-  let days = ["thu" , "fri" , "sat" ,"sun"];
-  days.forEach(function(day){
-    forecastHTML = forecastHTML +'<div class="col-2">
+  let forecastHTML = `<div class="row">`;
+  let days = ["thu", "fri", "sat", "sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
                 <div class="weather-forcast-date">
                     su 
                 </div>
@@ -100,9 +103,11 @@ function displayForecast(){
                         12
                     </span>
                 </div>
-                       </div>'});
-  '
+                       </div>`;
+  });
 }
+
+
 
 
 
